@@ -14,7 +14,7 @@ IncludeTemplateLangFile(__FILE__);
     <script src="<?=SITE_TEMPLATE_PATH?>/js/jquery.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/owl.carousel.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/scripts.js"></script>
-    <link rel="icon" type="<?=SITE_TEMPLATE_PATH?>image/vnd.microsoft.icon"  href="favicon.ico">
+    <link rel="icon" type="<?=SITE_TEMPLATE_PATH?>/image/vnd.microsoft.icon"  href="favicon.ico">
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico">
 </head>
 

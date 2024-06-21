@@ -13,9 +13,12 @@
 $this->setFrameMode(true);
 ?>
 <div class="news-list">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
+
+<?php
+if (empty($arResult["ITEMS"])) {
+    return;
+}
+?>
 <?foreach($arResult["ITEMS"] as $arItem):?>
 	<?
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -31,27 +34,48 @@ $this->setFrameMode(true);
 					</a>
 				</span>
 				<span class="review-block-description">
-					<?echo $arItem["DISPLAY_ACTIVE_FROM"] ?> <?= GetMessage("YEAR");?>
-					<?echo $arItem["PROPERTIES"]["POSITION"]["VALUE"]?>
-					<?echo $arItem["PROPERTIES"]["COMPANY"]["VALUE"]?>
+					<?echo $arItem["DISPLAY_ACTIVE_FROM"]?>
+					<?php
+        if (isset($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])) {
+            $position = $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];
+            if (is_string($position) && $position  != "") {
+                echo  $position;
+            }
+		}
+		if (isset($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) {
+            $company = $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"];
+            if (is_string($company) && $company  != "") {
+                echo  $company;
+            }
+		}
+		?>
+					
 				</span>
 			</div>
 			
 			<div class="review-text-cont">
-				<?echo $arItem["PREVIEW_TEXT"]?>
+			<?php
+        if (isset($arItem["PREVIEW_TEXT"])) {
+            $text = $arItem["PREVIEW_TEXT"];
+            if (is_string($text) && $text  != "") {
+                echo  $text;
+            }
+		}
+		?>
+				
 			</div>
 		</div>
 		<div class="review-img-wrap">
 			<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>">
 			
 			<?
-            if ($arItem["PREVIEW_PICTURE"]["SRC"]) {
+            if (!empty($arItem["PREVIEW_PICTURE"]["SRC"])) {
             ?>
             <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>">
             <?  }
             else  { ?>
 
-                <img src="/bitrix/templates/exam1/img/no_photo.jpg" alt="img">
+                <img src="<?=SITE_TEMPLATE_PATH?>/img/no_photo.jpg" alt="img">
 
             <? } ?>
 

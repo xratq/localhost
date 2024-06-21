@@ -1,9 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $this->setFrameMode(true);
-echo  '<pre>';
-//print_r($arResult);
-echo '</pre>';
+
 ?>
 
 <div class="review-block">
@@ -14,8 +12,20 @@ echo '</pre>';
         <div class="review-autor">
             <?=$arResult["NAME"]?>
             <?= $arResult["DISPLAY_ACTIVE_FROM"]?>
-            <?= $arResult["PROPERTIES"]["POSITION"]["VALUE"]?>
-            <?= $arResult["PROPERTIES"]["COMPANY"]["VALUE"]?>
+            <?
+            if (isset($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])) {
+                $position = $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];
+                if (is_string($position) && $position  != "") {
+                    $arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];
+                }
+            }?>
+            <?
+            if (isset($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) {
+                $company = $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"];
+                if (is_string($company) && $company  != "") {
+                    $arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"];
+                }
+            }?>
             </span>
         </div>
     </div>
@@ -35,11 +45,6 @@ else  { ?>
 <? } ?>
     </div>
 </div>
-<?php
-//var_dump($arResult["DISPLAY_PROPERTIES"]["FILE"]["VALUE"]);
-?>
-
-<?php // echo count($arResult["PROPERTIES"]["FILE"]["VALUE"]) ?>
 
 <?php if (!is_null($arResult["DISPLAY_PROPERTIES"]["FILE"]["VALUE"]) && is_array($arResult["DISPLAY_PROPERTIES"]["FILE"]["VALUE"])):  ?>
 
@@ -48,7 +53,7 @@ else  { ?>
 
         <?php foreach ($arResult["DISPLAY_PROPERTIES"]["FILE"]["FILE_VALUE"] as $val): ?>
             <div class="exam-review-item-doc">
-                <img class="rew-doc-ico" src="/bitrix/templates/exam1/img/icons/pdf_ico_40.png">
+                <img class="rew-doc-ico" src="<?=SITE_TEMPLATE_PATH?>/img/icons/pdf_ico_40.png">
                 <a href="<?= $val["SRC"] ?>"><?= $val["ORIGINAL_NAME"] ?></a>
             </div>
         <?php endforeach; ?>
