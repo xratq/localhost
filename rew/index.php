@@ -31,7 +31,7 @@ $APPLICATION->SetTitle("rew");
 		"DETAIL_PROPERTY_CODE" => array(
 			0 => "POSITION",
 			1 => "COMPANY",
-			2 => "",
+			2 => "FILE",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
