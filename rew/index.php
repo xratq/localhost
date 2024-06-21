@@ -2,9 +2,9 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("rew");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:news",
-	"newss",
-	Array(
+	"bitrix:news", 
+	"newss", 
+	array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
@@ -18,14 +18,21 @@ $APPLICATION->SetTitle("rew");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DETAIL_ACTIVE_DATE_FORMAT" => "j F Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
-		"DETAIL_FIELD_CODE" => array("",""),
+		"DETAIL_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array("COMPANY","POSITION"),
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "POSITION",
+			1 => "COMPANY",
+			2 => "",
+		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -37,9 +44,18 @@ $APPLICATION->SetTitle("rew");
 		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "news",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"LIST_FIELD_CODE" => array("ID", "NAME", "DATE_ACTIVE_FROM"),
-		"LIST_PROPERTY_CODE" => array("COMPANY","POSITION"),
+		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
+		"LIST_FIELD_CODE" => array(
+			0 => "ID",
+			1 => "NAME",
+			2 => "DATE_ACTIVE_FROM",
+			3 => "",
+		),
+		"LIST_PROPERTY_CODE" => array(
+			0 => "POSITION",
+			1 => "COMPANY",
+			2 => "",
+		),
 		"LIST_USE_SHARE" => "",
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -72,6 +88,11 @@ $APPLICATION->SetTitle("rew");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"VARIABLE_ALIASES" => Array("ELEMENT_ID"=>"ELEMENT_ID","SECTION_ID"=>"SECTION_ID")
-	)
+		"COMPONENT_TEMPLATE" => "newss",
+		"VARIABLE_ALIASES" => array(
+			"SECTION_ID" => "SECTION_ID",
+			"ELEMENT_ID" => "ELEMENT_ID",
+		)
+	),
+	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
