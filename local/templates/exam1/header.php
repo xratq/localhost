@@ -51,7 +51,20 @@ IncludeTemplateLangFile(__FILE__);
                     <input type="text" placeholder="Поиск">
                     <button type="submit"></button>
                 </form>
-                
+                <nav class="menu-block">
+                    <ul>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:system.auth.form",
+                            "demo",
+                            Array(
+                                "FORGOT_PASSWORD_URL" => "/login/?forgot_password=yes,",
+                                "PROFILE_URL" => "/login/user.php",
+                                "REGISTER_URL" => "/login/?register=yes",
+                                "SHOW_ERRORS" => "N"
+                            )
+                        );?>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
