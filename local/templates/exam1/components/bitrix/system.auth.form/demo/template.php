@@ -102,7 +102,7 @@ else{
 			<li>
 				<a href="/login/user.php" ><? echo $arUser["NAME"];?> <? echo $arUser["LAST_NAME"];?> [<? echo $arUser["LOGIN"];?>]</a>
 			</li>
-			<li><a href="/?logout=yes">Выйти</a>
+			<li><a href="/?logout=yes<?$APPLICATION->GetCurPageParam("logout=yes&".bitrix_sessid_get(), array( "login", "logout", "register", "forgot_password", "change_password"));?> ">Выйти</a>
 			</li>
 		</ul>
 	</nav>
