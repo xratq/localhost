@@ -10,12 +10,12 @@ IncludeTemplateLangFile(__FILE__);
 
     
     <?
-    $APPLICATION->AddHeadScript('/bitrix/templates/exam1/js/jquery.min.js');
-    $APPLICATION->AddHeadScript('/bitrix/templates/exam1/js/owl.carousel.min.js');
-    $APPLICATION->AddHeadScript('/bitrix/templates/exam1/js/scripts.js');
-    $APPLICATION->SetAdditionalCSS('/bitrix/templates/exam1/css/reset.css');
-    $APPLICATION->SetAdditionalCSS('/bitrix/templates/exam1/css/style.css');
-    $APPLICATION->SetAdditionalCSS('/bitrix/templates/exam1/css/owl.carousel.css');
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH .'/js/jquery.min.js');
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH .'/js/owl.carousel.min.js');
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH .'/js/scripts.js');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH .'/css/reset.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH .'/css/style.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH .'/css/owl.carousel.css');
     ?>
     
     <link rel="icon" type="<?=SITE_TEMPLATE_PATH?>image/vnd.microsoft.icon"  href="favicon.ico">
