@@ -36,17 +36,11 @@ if (empty($arResult["ITEMS"])) {
 				<span class="review-block-description">
 					<?echo $arItem["DISPLAY_ACTIVE_FROM"]?>
 					<?php
-        if (isset($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])) {
-            $position = $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];
-            if (is_string($position) && $position  != "") {
-                echo  $position;
-            }
+        if (!empty($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]) && is_string($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])) {
+			echo $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];
 		}
-		if (isset($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) {
-            $company = $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"];
-            if (is_string($company) && $company  != "") {
-                echo  $company;
-            }
+		if (!empty($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]) && is_string($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) {
+			echo $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"];
 		}
 		?>
 					
