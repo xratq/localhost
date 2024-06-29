@@ -7,7 +7,9 @@ $this->setFrameMode(true);
 <div class="review-block">
     <div class="review-text">
         <div class="review-text-cont">
-            <?=$arResult["DETAIL_TEXT"]?>
+        <?php if (!empty($arResult["DETAIL_TEXT"]) && is_string($arResult["DETAIL_TEXT"])): ?>
+                <?= $arResult["DETAIL_TEXT"] ?>
+            <?php endif; ?>
         </div>
         <div class="review-autor">
             <?php if (!empty($arResult["NAME"]) && is_string($arResult["NAME"])): ?>
