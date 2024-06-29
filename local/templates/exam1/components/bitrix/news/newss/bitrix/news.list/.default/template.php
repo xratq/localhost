@@ -49,11 +49,8 @@ if (empty($arResult["ITEMS"])) {
 			
 			<div class="review-text-cont">
 			<?php
-        if (isset($arItem["PREVIEW_TEXT"])) {
-            $text = $arItem["PREVIEW_TEXT"];
-            if (is_string($text) && $text  != "") {
-                echo  $text;
-            }
+        if (!empty($arItem["PREVIEW_TEXT"]) && is_string($arItem["PREVIEW_TEXT"])) {
+			echo $arItem["PREVIEW_TEXT"];
 		}
 		?>
 				
