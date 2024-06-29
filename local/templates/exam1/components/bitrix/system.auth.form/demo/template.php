@@ -3,8 +3,7 @@
 if ($arResult ['SHOW_ERRORS'] == 'Y' && $arResult ['ERROR'])
 	ShowMessage ( $arResult ['ERROR_MESSAGE'] );
 
-//dump($arParams);
-//dump($arResult);
+
 CJSCore::Init();
 ?>
 <?
@@ -93,14 +92,14 @@ if($arResult["FORM_TYPE"] == "login")
 }
 else{
 	$rsUser = CUser::GetByID($USER->GetID());
-	$arUser = $rsUser->Fetch();?>
+	$arResult = $rsUser->Fetch();?>
 	
 	
 	
 	<nav class="menu-block">
 		<ul>
 			<li>
-				<a href="/login/user.php" ><? echo $arUser["NAME"];?> <? echo $arUser["LAST_NAME"];?> [<? echo $arUser["LOGIN"];?>]</a>
+				<a href="/login/user.php" ><? echo $arResult["NAME"];?> <? echo $arResult["LAST_NAME"];?> [<? echo $arResult["LOGIN"];?>]</a>
 			</li>
 			<li><a href="/?logout=yes<?$APPLICATION->GetCurPageParam("logout=yes&".bitrix_sessid_get(), array( "login", "logout", "register", "forgot_password", "change_password"));?> ">Выйти</a>
 			</li>
