@@ -10,11 +10,21 @@ $this->setFrameMode(true);
             <?=$arResult["DETAIL_TEXT"]?>
         </div>
         <div class="review-autor">
-            <?=$arResult["NAME"]?>
-            <?=$arResult["DISPLAY_ACTIVE_FROM"]?>
-            <?=$arResult["PROPERTIES"]["POSITION"]["VALUE"];?>
-            <?=$arResult["PROPERTIES"]["COMPANY"]["VALUE"];?>
-            </span>
+            <?php if (!empty($arResult["NAME"]) && is_string($arResult["NAME"])): ?>
+                <?= $arResult["NAME"] ?>
+            <?php endif; ?>
+            
+            <?php if (!empty($arResult["DISPLAY_ACTIVE_FROM"]) && is_string($arResult["DISPLAY_ACTIVE_FROM"])): ?>
+                <?= $arResult["DISPLAY_ACTIVE_FROM"] ?>
+            <?php endif; ?>
+            
+            <?php if (!empty($arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]) && is_string($arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])): ?>
+                <?= $arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"] ?>
+            <?php endif; ?>
+            <?php if (!empty($arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]) && is_string($arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])): ?>
+                <?= $arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"] ?>
+            <?php endif; ?>
+            
         </div>
     </div>
 
