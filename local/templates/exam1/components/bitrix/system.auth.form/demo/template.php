@@ -90,18 +90,15 @@ if($arResult["FORM_TYPE"] == "login")
 </nav>
 <?
 }
-else{
-	$rsUser = CUser::GetByID($USER->GetID());
-	$arResult = $rsUser->Fetch();?>
+else{?>
 	
-	
-	
+	<!--$_SESSION["fixed_session_id"];-->
 	<nav class="menu-block">
 		<ul>
 			<li>
-				<a href="/login/user.php" ><? echo $arResult["NAME"];?> <? echo $arResult["LAST_NAME"];?> [<? echo $arResult["LOGIN"];?>]</a>
+				<a href="<?=$arParams["PROFILE_URL"];?>"><?=$USER->GetFullName(); ?> [<?=$USER->GetLogin();?>]</a>
 			</li>
-			<li><a href="/?logout=yes<?$APPLICATION->GetCurPageParam("logout=yes&".bitrix_sessid_get(), array( "login", "logout", "register", "forgot_password", "change_password"));?> ">Выйти</a>
+			<li><a href="?logout=yes&sessid=<?=$APPLICATION->GetCurPageParam("logout=yes&".bitrix_sessid_get(), array( "login", "logout", "register", "forgot_password", "change_password"));?>"><?=GetMessage("LogOut");?></a>
 			</li>
 		</ul>
 	</nav>

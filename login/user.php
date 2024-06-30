@@ -11,4 +11,9 @@ $APPLICATION->SetTitle("профиль пользователя");
 		"USER_PROPERTY" => array(),
 		"USER_PROPERTY_NAME" => ""
 	)
+);?>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form",
+	"",
+Array()
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
