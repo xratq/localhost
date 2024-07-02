@@ -92,7 +92,6 @@ if($arResult["FORM_TYPE"] == "login")
 }
 else{?>
 	
-	<!--$_SESSION["fixed_session_id"];-->
 	<nav class="menu-block">
 		<ul>
 			<li>
